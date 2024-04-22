@@ -1,5 +1,6 @@
 import FeaturePosts from "@/components/home-page/feature-posts";
 import Hero from "@/components/home-page/hero";
+import { getFeaturedPosts } from "@/lib/posts-util";
 
 export const DUMMY_POSTS = [
   {
@@ -35,11 +36,22 @@ export const DUMMY_POSTS = [
     image: "getting-started-next-js.png",
   },
 ];
-export default function Home() {
+export default function Home(props) {
+  console.log("props", props);
   return (
     <>
       <Hero />
-      <FeaturePosts posts={DUMMY_POSTS} />
+      <FeaturePosts posts={props.posts} />
     </>
   );
+}
+
+export function getStaticProps() {
+  const featuredPosts = getFeaturedPosts();
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+    revalidate: 60,
+  };
 }
