@@ -1,8 +1,9 @@
 import React from "react";
 import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
+import ReactMarkdown from "react-markdown";
 const DUMMY_POST = {
-  title: "Getting Statted with next js",
+  title: "Getting Started With Next JS",
   slug: "getting-started-nex-js-2",
   excerpt:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. L",
@@ -13,8 +14,9 @@ const DUMMY_POST = {
 function PostContent() {
   const imagePath = `/images/posts/${DUMMY_POST.image}`;
   return (
-    <article>
+    <article className={classes.content}>
       <PostHeader title={DUMMY_POST.title} image={imagePath} />
+      <ReactMarkdown>{DUMMY_POST.content}</ReactMarkdown>
     </article>
   );
 }
