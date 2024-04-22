@@ -1,5 +1,6 @@
+import PostContent from "@/components/posts/post-detail/post-content";
 import React from "react";
 
 export default function EachPost() {
-  return <div>EachPost</div>;
+  return <PostContent></PostContent>;
 }
