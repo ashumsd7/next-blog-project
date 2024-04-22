@@ -1,9 +1,11 @@
 import React from "react";
 import classes from "./feature-posts.module.css";
-function FeaturePosts() {
+import PostsGrid from "../posts/posts-grid";
+function FeaturePosts(props) {
   return (
-    <section>
+    <section className={classes.latest}>
       <h2>Feature Posts</h2>
+      <PostsGrid posts={props.posts} />
     </section>
   );
 }
