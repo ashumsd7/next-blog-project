@@ -1,4 +1,5 @@
 function handler(req, res) {
+  console.log("hello");
   if (req.method == "POST") {
     const { name, email, message } = req.body;
     if (
